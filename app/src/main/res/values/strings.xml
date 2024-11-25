@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">CryptoCurrency</string>
+    <string name="item_count">Count</string>
+    <string name="item_name">Name</string>
+    <string name="save_item">Save Item</string>
+    <string name="name_error">Name error</string>
+    <string name="count_error">Count error</string>
+    <string name="goods">Goods</string>
+    <string name="default_quantity">3</string>
+    <string name="add_element">Add element</string>
 </resources>
