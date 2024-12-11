@@ -8,7 +8,7 @@ import retrofit2.http.Query
 interface AndroidService {
     @GET("top/totalvolfull") // ?limit=30&tsym=USD
     fun getAndroid(
-        @Query("limit") courseData1: String = "30",
+        @Query("limit") courseData1: String = "3",
         @Query("tsym") courseData2: String = "USD"
     ) : Call<CrptRespon?>?
 }
