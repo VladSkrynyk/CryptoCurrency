@@ -37,19 +37,24 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <!-- Ціна криптовалюти -->
+
+
+            <!-- Картинка криптовалюти -->
+
             <TextView
                 android:id="@+id/textViewCount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="120dp"
+                android:gravity="start"
                 android:text="@string/default_quantity"
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.545"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.614" />
+                app:layout_constraintVertical_bias="0.622" />
 
             <ImageView
                 android:id="@+id/imageViewCrypto"

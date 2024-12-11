@@ -55,7 +55,7 @@ class CryptoItemsAdapter() :
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
 
         val shopItem = getItem(position)
-        viewHolder.name.text = shopItem.fullName.toString()
+        viewHolder.name.text = shopItem.fullName.toString() + " \\ USD"
         viewHolder.price.text = "Price: " + shopItem.price.toString()
         //viewHolder.min.text = "LowDay: " + shopItem.min.toString()
         //viewHolder.max.text = "HighDay: " + shopItem.max.toString()
