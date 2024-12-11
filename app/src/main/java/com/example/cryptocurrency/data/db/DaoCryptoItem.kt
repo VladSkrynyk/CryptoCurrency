@@ -18,9 +18,9 @@ interface DaoCryptoItem {
 
     //@Insert
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(item: List<CryptoEntity>)
+    suspend fun insert(item: CryptoEntity)
 
-    //@Query("SELECT COUNT() FROM release_database WHERE test_item = :id")
-    //fun count(id: String): Int
+    @Query("SELECT COUNT() FROM release_database WHERE test_item = :id")
+    fun count(id: String): Int
 
 }

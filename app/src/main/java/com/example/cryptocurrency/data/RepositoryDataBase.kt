@@ -58,12 +58,17 @@ class RepositoryDataBase @Inject constructor(@ApplicationContext context: Contex
                             i.rAW?.uSD?.lASTMARKET.toString(),
                             imageUrl
                         )
-                        list1.add(entity)
+                        // list1.add(entity)
+                        // Log.d("XXX", "test: ${dao.count(entity.id)}")
+                        CoroutineScope(Dispatchers.Default).launch {
+                            val cnt = dao.count(entity.fullName)
+                            if(cnt == 0) {
+                                Log.d("XXX", "test: $cnt")
+                                dao.insert(entity)
+                            }
+                        }
+                    }
 
-                    }
-                    CoroutineScope(Dispatchers.Default).launch {
-                        dao.insert(list1)
-                    }
 
 
                 }
