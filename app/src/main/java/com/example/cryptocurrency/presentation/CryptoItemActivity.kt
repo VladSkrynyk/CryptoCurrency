@@ -9,6 +9,9 @@ import com.example.cryptocurrency.databinding.ActivityEditShopItemBinding
 import com.example.cryptocurrency.domain.CryptoItem
 import dagger.hilt.android.AndroidEntryPoint
 
+import com.example.cryptocurrency.R
+import com.squareup.picasso.Picasso
+
 @AndroidEntryPoint
 class CryptoItemActivity : AppCompatActivity() {
 
@@ -71,6 +74,11 @@ class CryptoItemActivity : AppCompatActivity() {
                 textViewMin.setText(it.min.toString())
                 textViewMax.setText(it.max.toString())
                 textViewLastMarket.setText(it.lastMarket.toString())
+                Picasso.get()
+                    .load(it.imageUrl)
+                    .placeholder(R.drawable.img_1) // Placeholder image
+                    .error(R.drawable.img) // Fallback on error
+                    .into(imageViewCrypto) // Ensure this ID matches your layout
             }
         }
 
