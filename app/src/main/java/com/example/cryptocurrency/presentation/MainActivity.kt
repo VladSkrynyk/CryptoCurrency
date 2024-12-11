@@ -11,6 +11,12 @@ import com.example.cryptocurrency.domain.CryptoItem
 import dagger.hilt.android.AndroidEntryPoint
 
 
+import androidx.work.Constraints
+import androidx.work.PeriodicWorkRequestBuilder
+import androidx.work.WorkManager
+import com.example.cryptocurrency.data.worker.CryptoDataWorker
+import java.util.concurrent.TimeUnit
+
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private val TAG = "XXXX"
@@ -49,6 +55,24 @@ class MainActivity : AppCompatActivity() {
             }
 
         }
+
+        val constraints = Constraints.Builder()
+            .setRequiredNetworkType(androidx.work.NetworkType.CONNECTED) // Ensure internet connection
+            .build()
+
+        // Create a periodic work request for 15-minute intervals
+        val periodicWorkRequest = PeriodicWorkRequestBuilder<CryptoDataWorker>(
+            15, TimeUnit.MINUTES // Minimum allowed interval
+        )
+            .setConstraints(constraints)
+            .build()
+
+        // Enqueue the periodic work
+        WorkManager.getInstance(this).enqueueUniquePeriodicWork(
+            "CryptoDataWorker", // Unique name for the work
+            androidx.work.ExistingPeriodicWorkPolicy.REPLACE, // Replace if existing
+            periodicWorkRequest
+        )
 
     }
 
